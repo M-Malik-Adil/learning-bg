@@ -1,8 +1,6 @@
 import { ClientRMQ } from '@nestjs/microservices';
+import { SERVICES } from '@shared/constants';
 
-export enum SERVICES {
-    EXAMPLE_MICROSERVICE = 'EXAMPLE_MICROSERVICE_SERVICE',
-  }
 
 export const MICRO_SERVICES = Object.values(SERVICES);
 export const ALL_SERVICE_PROVIDERS = {

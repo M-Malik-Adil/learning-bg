@@ -10,7 +10,7 @@ import { PublicGatewayModule } from './public.gateway.module';
 import { SERVICES } from '@shared/constants';
 import { HealthCheckController } from './controllers/health-check.controller';
 
-
+import { SharedModule } from '@shared';
 
 @Module({
     imports: [
@@ -19,6 +19,7 @@ import { HealthCheckController } from './controllers/health-check.controller';
         WinstonModule.forRootAsync({
             useClass:WinstonConfigService
         }),
+        SharedModule,
         PublicGatewayModule
     ],
     controllers: [HealthCheckController],

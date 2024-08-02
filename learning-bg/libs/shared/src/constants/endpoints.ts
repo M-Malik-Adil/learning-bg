@@ -7,4 +7,11 @@ export const API_ENDPOINTS = {
         API_GUIDE: 'api_guide',
         API_GUIDE_RENDER: 'api_guide',
       },
+
+      USER: {
+        GET: '/',
+        CREATE: '/',
+      }
+
+
 }

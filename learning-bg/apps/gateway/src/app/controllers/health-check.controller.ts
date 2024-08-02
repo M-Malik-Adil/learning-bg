@@ -35,7 +35,6 @@ export class HealthCheckController {
               Object.keys(SERVICES).map(async (svc, i) => {
                 try {
                   // Send health check request and wait for response with timeout
-                  console.log("======= try ===",svc)
                   services[svc] = await firstValueFrom(
                     this.svcClients[i]
                       .send(RMQ_MESSAGES.HEALTH.HEALTH_CHECK, {})
@@ -43,7 +42,6 @@ export class HealthCheckController {
                   );
                 } catch (err) {
                   // Handle health check failure
-                  console.log("======= Error ===",svc)
                   services[svc] = { healthCheckPassed: false, healthCheck: 'Failed' };
                   this.logger.error(
                     `[Health Alert] ${formatServiceName(
@@ -53,10 +51,8 @@ export class HealthCheckController {
                 }
               })
             );
-      
-            const SERVICE_ORDER = [
-              'USER',
-            ];
+         
+            const SERVICE_ORDER = Object.keys(SERVICES);
             // Construct array of health check results
             return SERVICE_ORDER.map((svc) => ({
               name: `${formatServiceName(svc)} Microservice`,

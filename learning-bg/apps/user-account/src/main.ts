@@ -6,13 +6,13 @@
 import {  ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
-import { AppModule } from './app/app.module';
+import { UserAccountModule } from './app/user-account.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { SERVICES } from '@shared/constants';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    AppModule,
+    UserAccountModule,
     {
       transport:Transport.RMQ,
       options:{

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@shared": ["libs/shared/src/index.ts"],
-      "@shared/constants": ["libs/shared/src/constants/index.ts"]
+      "@shared/constants": ["libs/shared/src/constants/index.ts"],
+      "@shared/dto": ["libs/shared/src/dto/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -4,6 +4,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseConfig } from './config/mongo.config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DbModels } from '../src/model.provider';
+import { UserRepository } from '../src/repositories';
+
 @Module({
   imports:[
     ConfigModule.forRoot(),
@@ -13,8 +15,9 @@ import { DbModels } from '../src/model.provider';
     MongooseModule.forFeature(DbModels),
 
   ],
-  providers: [],
+  providers: [UserRepository],
   exports: [
+    UserRepository,
     MongooseModule.forFeature(DbModels),
   ],
 })

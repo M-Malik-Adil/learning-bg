@@ -11,6 +11,10 @@ export class CreateUserDto {
     @IsNotEmpty()
     email: string;
 
+    @ApiProperty({type: String, example: 'nopass'})
+    @IsNotEmpty()
+    password: string;
+
     @ApiProperty({
         example: UserRole.SUPER_ADMIN,
         enum: UserRole,

@@ -23,15 +23,8 @@ export class UserController {
 
   @MessagePattern(RMQ_MESSAGES.USER.CREATE)
   async createUser(@Payload() payload: CreateUserDto) {
-   
-    const { name, email  } = payload
-    const cognitUser = await this.userService.createAdminAccount({
-      name,
-      email
-    })  
-
-    console.log('======= cognitUser',cognitUser);
-    return cognitUser
+    const cognitUser = await this.userService.create(payload)  
+   return cognitUser
   }
 
   
